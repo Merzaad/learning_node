@@ -1,0 +1,11 @@
+{
+  "name": "learning_node_js",
+  "version": "1.0.0",
+  "main": "app.mjs",
+  "repository": "https://github.com/Merzaad/learning_node_js.git",
+  "author": "Merzaad <Merzaad@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "node app.mjs"
+  }
+}
