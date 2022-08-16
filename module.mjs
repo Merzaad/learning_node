@@ -38,13 +38,12 @@ const learnPromise = () => {
 }
 
 const learnClosure = (initial = null) => {
-  const state = {initial, data: null}
+  const state = { initial, data: null }
   const setState = (newData) => {
     state.initial = null
     state.data = newData
-
   }
-  const getState = () => state.initial ? state.initial : state.data;
+  const getState = () => (state.initial ? state.initial : state.data)
   const closure = () => {
     return {
       getState,
