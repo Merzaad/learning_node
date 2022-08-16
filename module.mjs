@@ -1,7 +1,6 @@
 import path from 'path'
 import os from 'os'
 
-
 const getDir = (pathString) => path.dirname(pathString)
 const getOsUptimeInHr = () => {
   const uptimInSec = os.uptime()
@@ -38,4 +37,21 @@ const learnPromise = () => {
   }, 3000)
 }
 
-export { getName, getDir, getOsUptimeInHr, learnPromise }
+const learnClosure = (initial = null) => {
+  const state = {initial, data: null}
+  const setState = (newData) => {
+    state.initial = null
+    state.data = newData
+
+  }
+  const getState = () => state.initial ? state.initial : state.data;
+  const closure = () => {
+    return {
+      getState,
+      setState,
+    }
+  }
+  return closure
+}
+
+export { getName, getDir, getOsUptimeInHr, learnPromise, learnClosure }
