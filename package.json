@@ -6,7 +6,8 @@
   "author": "Merzaad <Merzaad@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "nodemon app.mjs"
+    "start": "node server.mjs",
+    "dev": "node server.mjs"
   },
   "dependencies": {
     "nodemon": "^2.0.19"
