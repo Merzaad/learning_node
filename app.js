@@ -1,8 +1,8 @@
-import { getName, getDir, getOsUptimeInHr, learnPromise, learnClosure } from './module.mjs'
+import { getName, getDir, getOsUptimeInHr, learnPromise, learnClosure } from './module.js'
 
 // getName().then((result) => console.log(result))
 
-const dirname = getDir('/node/module.mjs')
+const dirname = getDir('/node/module.js')
 
 const uptime = getOsUptimeInHr()
 

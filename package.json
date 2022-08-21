@@ -5,9 +5,10 @@
   "repository": "https://github.com/Merzaad/learning_node_js.git",
   "author": "Merzaad <Merzaad@gmail.com>",
   "license": "MIT",
+  "type": "module",
   "scripts": {
-    "start": "node server.mjs",
-    "dev": "node server.mjs"
+    "start": "node server.js",
+    "dev": "node server.js"
   },
   "dependencies": {
     "axios": "^0.27.2",
