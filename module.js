@@ -53,4 +53,33 @@ const learnClosure = (initial = null) => {
   return closure
 }
 
-export { getName, getDir, getOsUptimeInHr, learnPromise, learnClosure }
+class Person {
+  constructor(name, lastname) {
+    this.name = name
+    this.lastname = lastname
+  }
+}
+class PersonWithAge extends Person {
+  constructor(age, name, lastname) {
+    super(name, lastname || 'empty')
+    this.age = age
+  }
+  get nameAndage() {
+    return `name: ${this.name} age: ${this.age}`
+  }
+  set nameAndage({ name, age }) {
+    this.name = name
+    this.age = age
+  }
+}
+const createPerson = (name, lastname) => new Person(name, lastname)
+const createPersonWithAge = (age, name) => new PersonWithAge(age, name)
+export {
+  getName,
+  getDir,
+  getOsUptimeInHr,
+  learnPromise,
+  learnClosure,
+  createPerson,
+  createPersonWithAge,
+}
