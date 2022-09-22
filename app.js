@@ -14,8 +14,8 @@ import { getName, getDir, getOsUptimeInHr, learnPromise, learnClosure, createPer
 // setState('testClosure')
 // console.log(getState())
 
-const person = createPerson('M', 'H')
-const personWithAge= createPersonWithAge(1, 'P')
-console.log(personWithAge.nameAndage)
-personWithAge.nameAndage = {name: 'M', age: 3}
-console.log(personWithAge.nameAndage)
+// const person = createPerson('M', 'H')
+// const personWithAge= createPersonWithAge(1, 'P')
+// console.log(personWithAge.nameAndage)
+// personWithAge.nameAndage = {name: 'M', age: 3}
+// console.log(personWithAge.nameAndage)

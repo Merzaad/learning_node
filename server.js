@@ -7,9 +7,54 @@ import path from 'path'
 
 const PORT = process.env.PORT || 420
 // const favicon = path.join(__dirname, 'node.png')
+let WHATISTHIS = 0
 
 const server = http.createServer((request, response) => {
-  if (request.url === '/app') {
+  WHATISTHIS += 1
+  console.log(WHATISTHIS)
+  switch (request.url) {
+    case '/app':
+      response.writeHead(200, { 'Content-Type': 'text/html' })
+      fs.readFile('index.html', (err, data) => {
+        response.write(data)
+        response.end()
+      })
+      break
+    case '/favicon.ico':
+      response.writeHead(200, { 'Content-Type': 'image/png' })
+      fs.readFile('node.png', (error, data) => {
+        response.write(data)
+        response.end()
+      })
+      break
+    case '/':
+      response.writeHead(200, { status: '200' })
+      const learningData = {
+        url: request.url,
+        method: request.method,
+        query: url.parse(request.url, true).query,
+      }
+      response.write(JSON.stringify(learningData, null, 1))
+      response.end()
+      break
+    case '/api/test':
+      response.writeHead(401, { status: '401 todo' })
+      response.write('401 todo')
+      response.end()
+      break
+    case '/index.js':
+      fs.readFile('index.js', (error, data) => {
+        response.write(data)
+        response.end()
+      })
+      break
+    default:
+      response.writeHead(404, { status: '404' })
+      response.write('404 Not Found')
+      response.end()
+      break
+  }
+/*   if (request.url === '/app') {
     response.writeHead(200, { 'Content-Type': 'text/html' })
     fs.readFile('index.html', (err, data) => {
       response.write(data)
@@ -34,9 +79,9 @@ const server = http.createServer((request, response) => {
     response.writeHead(401, { status: '401 todo' })
     response.write('401 todo')
     response.end()
-  } else if (request.url === '/test.js') {
+  } else if (request.url === '/index.js') {
     response.writeHead(200)
-    fs.readFile('test.js', (error, data) => {
+    fs.readFile('index.js', (error, data) => {
       response.write(data)
       response.end()
     })
@@ -44,7 +89,7 @@ const server = http.createServer((request, response) => {
     response.writeHead(404, { status: '404' })
     response.write('404 Not Found')
     response.end()
-  }
+  } */
 })
 
-server.listen(PORT, () => console.log(`server running on ${PORT}`))
+server.listen(PORT, () => console.log(`server running on http://localhost:${PORT}`))
