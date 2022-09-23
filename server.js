@@ -11,7 +11,7 @@ let WHATISTHIS = 0
 
 const server = http.createServer((request, response) => {
   WHATISTHIS += 1
-  console.log(WHATISTHIS)
+  console.log(`${WHATISTHIS} : ${request.url}`)
   switch (request.url) {
     case '/app':
       response.writeHead(200, { 'Content-Type': 'text/html' })
