@@ -49,12 +49,12 @@ const server = http.createServer((request, response) => {
       })
       break
     default:
-      response.writeHead(404, { status: '404' })
+      response.writeHead(404, { status: '404', unfound_url: request.url })
       response.write('404 Not Found')
       response.end()
       break
   }
-/*   if (request.url === '/app') {
+  /*   if (request.url === '/app') {
     response.writeHead(200, { 'Content-Type': 'text/html' })
     fs.readFile('index.html', (err, data) => {
       response.write(data)
