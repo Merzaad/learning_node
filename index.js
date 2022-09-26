@@ -1,22 +1,17 @@
 const closureWraper = () => {
-  let x = 0
+  let state = 0
   const setValue = (value) => {
-    console.log(`changed from ${x} to ${value}`)
-    x = value
+    document.getElementById('print').innerHTML = `changed: ${state} to ${value}`
+    state = value
   }
-  const getValue = () => x
+  const getValue = () => {
+    document.getElementById('console').innerHTML = `state: ${state}`
+  }
   return { setValue, getValue }
 }
 
 const input = document.getElementById('input')
-/* const { setValue, getValue } = closureWraper() */
-
-x = 0
-const setValue = (value) => {
-  console.log(`changed from ${x} to ${value}`)
-  x = value
-}
-const getValue = () => x
+const { setValue, getValue } = closureWraper()
 
 document.getElementById('401').addEventListener('click', () => console.log(getValue()))
-document.getElementById('set').addEventListener('click', () => setValue(Number(input.value)))
+document.getElementById('set').addEventListener('click', () => setValue(input.value || 'empty'))

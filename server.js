@@ -8,7 +8,7 @@ import path from 'path'
 const PORT = process.env.PORT || 420
 // const favicon = path.join(__dirname, 'node.png')
 let WHATISTHIS = 0
-
+const data = { data: [1, 2, 3, 4] }
 const server = http.createServer((request, response) => {
   WHATISTHIS += 1
   console.log(`${WHATISTHIS} : ${request.url}`)
@@ -38,8 +38,8 @@ const server = http.createServer((request, response) => {
       response.end()
       break
     case '/api/test':
-      response.writeHead(401, { status: '401 todo' })
-      response.write('401 todo')
+      response.writeHead(200, { status: 200,  })
+      response.write(JSON.stringify(data))
       response.end()
       break
     case '/index.js':
